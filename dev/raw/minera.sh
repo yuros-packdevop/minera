@@ -22,7 +22,10 @@ function wp_master_takers() {
    if [[ $options_master != "-t" ]]; then
     return
     fi
-  echo "File wordpress has succesfully downloaded"
+  echo "File wordpress has succesfully downloaded" &&
+  sudo wget -P /srv/http https://wordpress.org/latest.zip &&
+  sudo bsdtar -xf /srv/http/latest.zip &&
+  sudo chown -R $user:$user /srv/http/wordpress 
 }
 
 
